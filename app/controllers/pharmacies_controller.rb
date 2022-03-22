@@ -20,5 +20,7 @@ class PharmaciesController < ApplicationController
   end
 
   def destroy
+    @pharmacy = Pharmacy.find(params[:id])
+    @pharmacy.destroy
   end
 end
