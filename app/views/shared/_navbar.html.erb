@@ -2,15 +2,30 @@
   <ul class="navbar-list me-auto">
   <%# if user_signed_in? %>
     <li class="nav-item">
-      <%= link_to root_path ,class: "navlink" do %>
+      <%= link_to root_path ,class: "nav-link" do %>
         <i class="fas fa-home"></i>
       <% end %>
     </li>
     <li class="nav-item">
-      <%= link_to "Search", "#", class: "navlink" %>
+      <%= link_to pharmacies_path, class: "nav-link" do %>
+        <i class="fas fa-search"></i>
+      <% end %>
     </li>
     <li class="nav-item">
-      <%= link_to "Message", "#", class: "navlink" %>
+      <%= link_to "Message", class: "nav-link" do %>
+        <i class="fas fa-comment-alt"></i>
+      <% end %>
     </li>
+    <li class="nav-item">
+      <%= link_to "History", class: "nav-link" do %>
+        <i class="fas fa-pills"></i>
+      <% end %>
+    </li>
+    <li class="nav-item">
+      <%= link_to "User", class: "nav-link" do %>
+        <i class="fas fa-user-circle"></i>
+      <% end %>
+    </li>
+
   </ul>
 </nav>

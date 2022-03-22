@@ -1,11 +1,14 @@
 .navbar-bottom {
   background-color: $green;
+  position: fixed;
+  bottom: 0;
+  width: -webkit-fill-available;
 }
 .navbar-list {
   display: flex;
   list-style-type: none;
 }
-.navlink {
+.nav-link {
   text-decoration: none;
   color: white;
 }
