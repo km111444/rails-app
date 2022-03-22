@@ -7,6 +7,7 @@ class PharmaciesController < ApplicationController
   end
 
   def new
+    @pharmacy = Pharmacy.new
   end
 
   def edit
