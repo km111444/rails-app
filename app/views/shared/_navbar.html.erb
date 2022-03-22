@@ -1,4 +1,16 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-  <div class="container-fluid">
-  </div>
-</div>
+<nav class="navbar navbar-bottom">
+  <ul class="navbar-list me-auto">
+  <%# if user_signed_in? %>
+    <li class="nav-item">
+      <%= link_to root_path ,class: "navlink" do %>
+        <i class="fas fa-home"></i>
+      <% end %>
+    </li>
+    <li class="nav-item">
+      <%= link_to "Search", "#", class: "navlink" %>
+    </li>
+    <li class="nav-item">
+      <%= link_to "Message", "#", class: "navlink" %>
+    </li>
+  </ul>
+</nav>

@@ -1,4 +1,11 @@
-.navbar-lewagon {
-  background: #59B1A3;
-  min-height: 5vh;
+.navbar-bottom {
+  background-color: $green;
+}
+.navbar-list {
+  display: flex;
+  list-style-type: none;
+}
+.navlink {
+  text-decoration: none;
+  color: white;
 }
