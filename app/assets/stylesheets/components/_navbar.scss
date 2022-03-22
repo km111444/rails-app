@@ -7,8 +7,16 @@
 .navbar-list {
   display: flex;
   list-style-type: none;
+  justify-content: space-evenly;
 }
 .nav-link {
   text-decoration: none;
   color: white;
+}
+ul {
+  margin: 0;
+  padding: 0;
+}
+.navbar-content {
+  width: -webkit-fill-available;
 }

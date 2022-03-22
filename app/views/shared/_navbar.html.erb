@@ -1,31 +1,32 @@
-<nav class="navbar navbar-bottom">
-  <ul class="navbar-list me-auto">
+<div class="navbar navbar-bottom">
+  <div class="navbar-content">
+    <ul class="navbar-list">
   <%# if user_signed_in? %>
-    <li class="nav-item">
-      <%= link_to root_path ,class: "nav-link" do %>
-        <i class="fas fa-home"></i>
-      <% end %>
-    </li>
-    <li class="nav-item">
-      <%= link_to pharmacies_path, class: "nav-link" do %>
-        <i class="fas fa-search"></i>
-      <% end %>
-    </li>
-    <li class="nav-item">
-      <%= link_to "Message", class: "nav-link" do %>
-        <i class="fas fa-comment-alt"></i>
-      <% end %>
-    </li>
-    <li class="nav-item">
-      <%= link_to "History", class: "nav-link" do %>
-        <i class="fas fa-pills"></i>
-      <% end %>
-    </li>
-    <li class="nav-item">
-      <%= link_to "User", class: "nav-link" do %>
-        <i class="fas fa-user-circle"></i>
-      <% end %>
-    </li>
-
-  </ul>
-</nav>
+      <li class="nav-item">
+        <%= link_to root_path ,class: "nav-link" do %>
+          <i class="fas fa-home"></i>
+        <% end %>
+      </li>
+      <li class="nav-item">
+        <%= link_to pharmacies_path, class: "nav-link" do %>
+          <i class="fas fa-search"></i>
+        <% end %>
+      </li>
+      <li class="nav-item">
+        <%= link_to "Message", class: "nav-link" do %>
+          <i class="fas fa-comment-alt"></i>
+        <% end %>
+      </li>
+      <li class="nav-item">
+        <%= link_to "History", class: "nav-link" do %>
+          <i class="fas fa-pills"></i>
+        <% end %>
+      </li>
+      <li class="nav-item">
+        <%= link_to "User", class: "nav-link" do %>
+          <i class="fas fa-user-circle"></i>
+        <% end %>
+      </li>
+    </ul>
+  </div>
+</div>
