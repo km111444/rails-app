@@ -1,6 +1,13 @@
 class PharmaciesController < ApplicationController
   def index
     @pharmacies = Pharmacy.all
+      @markers = @pharmacies.geocoded.map do |pharmacy|
+      {
+        lat: flat.latitude,
+        lng: flat.longitude,
+        info_window: render_to_string(partial: "info_window", locals: { pharmacy: pharmacy })
+      }
+      end
   end
 
   def show
