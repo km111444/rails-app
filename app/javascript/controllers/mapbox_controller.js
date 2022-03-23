@@ -1,7 +1,8 @@
 import { Controller } from "@hotwired/stimulus"
 import mapboxgl from "mapbox-gl"
 import MapboxLanguage from '@mapbox/mapbox-gl-language';
-import * as turf from '@turf/turf'
+import MapboxGeocoder from "@mapbox/mapbox-gl-geocoder"
+// import * as turf from '@turf/turf'
 
 export default class extends Controller {
   static values = {
@@ -22,15 +23,12 @@ export default class extends Controller {
     this.#languageChanger()
     this.#addMarkersToMap()
     this.#fitMapToMarkers()
+    this.map.addControl(new MapboxGeocoder({ accessToken: mapboxgl.accessToken,mapboxgl: mapboxgl }))
     // this.#getUserLocation()
     // this.#cardsHoverHighlightsMarkers()
     // this.#scrollToCardOnPriceHover()
   }
 
-
-
-// Add RTL support if you want to support Arabic
-// mapboxgl.setRTLTextPlugin('https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-rtl-text/v0.10.1/mapbox-gl-rtl-text.js');
 
 #languageChanger(){
   const language = new MapboxLanguage();
@@ -65,26 +63,14 @@ export default class extends Controller {
   //     });
   //   })
   // }
-
   #addMarkersToMap() {
     this.markersValue.forEach((marker) => {
-      if (marker.marker_html) {
-        const popup = new mapboxgl.Popup().setHTML(marker.info_window)
-        // Create HTML element for custom marker
-
-        const customMarker = document.createElement("div");
-        customMarker.className = 'marker';
-        customMarker.innerHTML = marker.marker_html.trim();
-
-        new mapboxgl.Marker(customMarker)
-          .setLngLat([ marker.lng, marker.lat ])
-          .setPopup(popup)
-          .addTo(this.map)
-      } else {
-        new mapboxgl.Marker()
-          .setLngLat([ marker.lng, marker.lat ])
-          .addTo(this.map)
-      }
+      console.log("addmarker");
+      const popup = new mapboxgl.Popup().setHTML(marker.info_window)
+      new mapboxgl.Marker()
+        .setLngLat([ marker.lng, marker.lat ])
+        .setPopup(popup)
+        .addTo(this.map)
     });
   }
 
@@ -94,22 +80,22 @@ export default class extends Controller {
     this.map.fitBounds(bounds, { padding: 70, maxZoom: 15, duration: 3000 })
   }
 
-  #getUserLocation() {
-    const success = (position) => {
-      this.#getDistanceFromStudio(position.coords)
-    }
+  // #getUserLocation() {
+  //   const success = (position) => {
+  //     this.#getDistanceFromStudio(position.coords)
+  //   }
 
-    const error = () => {
-      console.log('no location!')
-    }
+  //   const error = () => {
+  //     console.log('no location!')
+  //   }
 
-    if(!navigator.geolocation) {
-      console.log('Geolocation is not supported by your browser');
-    } else {
-      console.log('Locating…');
-      navigator.geolocation.getCurrentPosition(success, error);
-    }
-  }
+  //   if(!navigator.geolocation) {
+  //     console.log('Geolocation is not supported by your browser');
+  //   } else {
+  //     console.log('Locating…');
+  //     navigator.geolocation.getCurrentPosition(success, error);
+  //   }
+  // }
 
   // #getDistanceFromStudio(userLocation) {
   //   var user = turf.point([userLocation.longitude, userLocation.latitude]);

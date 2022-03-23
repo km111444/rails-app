@@ -5,3 +5,10 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+puts "creating pharmacies...."
+
+User.create(name: "田中花子", phone_number: 1111111111)
+Pharmacy.create(address: "5-7-18, ogikubo, suginami, tokyo", pharmacy_name: "明弘堂薬局", user: User.first)
+
+puts "done"

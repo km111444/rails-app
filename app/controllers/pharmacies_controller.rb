@@ -3,10 +3,10 @@ class PharmaciesController < ApplicationController
     @pharmacies = Pharmacy.all
       @markers = @pharmacies.geocoded.map do |pharmacy|
       {
-        lat: flat.latitude,
-        lng: flat.longitude,
-        info_window: render_to_string(partial: "info_window", locals: { pharmacy: pharmacy })
-      }
+        lat: pharmacy.latitude,
+        lng: pharmacy.longitude,
+        info_window: render_to_string(partial: "info_window", locals: { pharmacy: pharmacy }),
+        marker: render_to_string(partial: "marker", locals: { pharmacy: pharmacy }) }
       end
   end
 
