@@ -1,6 +1,5 @@
 import { Controller } from "@hotwired/stimulus"
 import mapboxgl from "mapbox-gl"
-import MapboxLanguage from '@mapbox/mapbox-gl-language';
 import MapboxGeocoder from "@mapbox/mapbox-gl-geocoder"
 // import * as turf from '@turf/turf'
 
@@ -17,23 +16,20 @@ export default class extends Controller {
       container: this.element,
       style: "mapbox://styles/mk1144/cl12z7zcx001w15qojdqcyf54",
       center: [139.7690, 35.6804],
-      zoom: 10
+      zoom: 7
     })
 
-    this.#languageChanger()
+    console.log("hello from mapbox");
+
     this.#addMarkersToMap()
     this.#fitMapToMarkers()
-    this.map.addControl(new MapboxGeocoder({ accessToken: mapboxgl.accessToken,mapboxgl: mapboxgl }))
+    this.map.addControl(new MapboxGeocoder({ accessToken: mapboxgl.accessToken, mapboxgl: mapboxgl }))
     // this.#getUserLocation()
     // this.#cardsHoverHighlightsMarkers()
     // this.#scrollToCardOnPriceHover()
   }
 
 
-#languageChanger(){
-  const language = new MapboxLanguage();
-  map.addControl(language);
-}
   // #cardsHoverHighlightsMarkers() {
   //   const cards = document.querySelectorAll(".studio-card");
   //   const markers = document.querySelectorAll(".marker");
@@ -67,6 +63,9 @@ export default class extends Controller {
     this.markersValue.forEach((marker) => {
       console.log("addmarker");
       const popup = new mapboxgl.Popup().setHTML(marker.info_window)
+      const customMarker = document.createElement("div");
+      customMarker.className = 'marker';
+      // customMarker.innerHTML = marker.marker_html.trim();
       new mapboxgl.Marker()
         .setLngLat([ marker.lng, marker.lat ])
         .setPopup(popup)
