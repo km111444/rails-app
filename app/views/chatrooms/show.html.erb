@@ -1,4 +1,7 @@
-<div class="chatroom">
+<div
+  class="chatroom"
+  data-controller="chatroom-subscription"
+  data-chatroom-subscription-chatroom-id-value="<%= @chatroom.id %>">
   <div class="container">
   <h1><%= @chatroom.user.name %></h1>
 
