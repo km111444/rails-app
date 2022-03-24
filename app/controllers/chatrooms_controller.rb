@@ -1,6 +1,6 @@
 class ChatroomsController < ApplicationController
   # def index
-  #   @chatrooms = Chatroom.where(user_id == 1)
+  #   @chatrooms = policy_scope(Chatroom)
   # end
 
   def show
