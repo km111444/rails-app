@@ -19,8 +19,6 @@ export default class extends Controller {
       zoom: 7
     })
 
-    console.log("hello from mapbox");
-
     this.#addMarkersToMap()
     this.#fitMapToMarkers()
     this.map.addControl(new MapboxGeocoder({ accessToken: mapboxgl.accessToken, mapboxgl: mapboxgl }))
